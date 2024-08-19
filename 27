@@ -18,16 +18,15 @@ public class Main
     int n=sc.nextInt();
     int[] a=new int[n];
     int[] b=new int[n];
-    char[] c=new char[n];
+    char[][] c=new char[n][10000];
     for (int i=0; i<n; i++) {a[i]=sc.nextInt();
     b[i]=a[i];
     }
     Arrays.sort(b);
     for (int i=0; i<n; i++){
-        if (bs(b,a[i])!=-1) c[i]= (char)Character.forDigit(b[bs(b,a[i])],10);
-        else c[i]='_';
-    }
-    for (int i=0; i<n; i++) System.out.print(c[i]+" ");
-   // System.out.print(bs(b,7));
+        if (bs(b,a[i])!=-1) System.out.print(b[bs(b,a[i])]+" ");
+        else System.out.print("_"+" ");
+   }
+    
 	}
 }

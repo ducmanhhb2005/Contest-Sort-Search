@@ -1,0 +1,33 @@
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+	    int n=sc.nextInt();
+	    int m=sc.nextInt();
+	    int k=sc.nextInt();
+	    int[] a=new int[n];
+	    int[] b=new int[m];
+	    for (int i=0; i<n; i++){
+	        a[i]=sc.nextInt();
+	    } 
+	    for (int i=0; i<m; i++) b[i]=sc.nextInt();
+	    Arrays.sort(a);
+	    Arrays.sort(b);
+	    int left1=0;
+	    int left2=0;
+	    int cnt=0;
+	    while (left1<=n-1 && left2<=m-1){
+	        if (Math.abs(a[left1]-b[left2])<=k) {
+	            cnt++;
+	            left1++;
+	            left2++;
+	        }
+	        else if(a[left1]-b[left2]>=k+1) left2++;
+	        else if (b[left2]-a[left1]>=k+1) left1++;
+	        
+	    }
+	   System.out.print(cnt);
+	}
+}
+    

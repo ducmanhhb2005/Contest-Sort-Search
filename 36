@@ -1,0 +1,39 @@
+import java.util.*;
+public class Main
+{
+    public static int binarySearch(ArrayList<Integer> arr, Integer x){
+        int index=-1;
+        int left=0;
+        int right=arr.size()-1;
+        while (left<=right){
+            int mid = (left+right)/2;
+            if (arr.get(mid)<=x) {
+                index=mid;
+                left=mid+1;
+            }
+            else right=mid-1;
+        }
+        return index;
+    }
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		int n=sc.nextInt();
+		int m=sc.nextInt();
+		ArrayList<Integer> h=new ArrayList<Integer>();
+		for (int i=0;i<n; i++){
+		    int x=sc.nextInt();
+		    h.add(x);
+		}
+		Collections.sort(h);
+	    Integer[] a=new Integer[m];
+	    for (int i=0; i<m; i++) a[i]=sc.nextInt();
+	    for (int i=0; i<m; i++){
+	        if (binarySearch(h,a[i])!=-1) {
+	            int y=binarySearch(h,a[i]);
+	            System.out.print(h.get(y)+" ");
+	            h.remove(h.get(y));
+	        }
+	        else System.out.print("-1"+" ");
+	    }
+	}
+}
